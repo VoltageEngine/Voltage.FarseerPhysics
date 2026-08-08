@@ -21,6 +21,12 @@ env:
 jobs:
   package:
     runs-on: ubuntu-latest
+
+    # Creating the release needs write access to repository contents. Org repositories default the
+    # workflow token to read-only, so without this the tagged build packages fine and then 403s.
+    permissions:
+      contents: write
+
     steps:
       - name: Check out the plugin
         uses: actions/checkout@v4
