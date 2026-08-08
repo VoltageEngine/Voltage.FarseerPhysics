@@ -45,6 +45,11 @@ jobs:
           dotnet build VoltageEngine/Voltage.Engine/Voltage.Engine.csproj -c Release
           dotnet build VoltageEngine/Voltage.Engine/Voltage.Engine.csproj -c Editor-Release
 
+      # PackagePlugin drives msbuild directly, which does not restore on its own.
+      - name: Restore the plugin
+        working-directory: plugin
+        run: dotnet restore Voltage.FarseerPhysics.csproj
+
       - name: Stage the plugin package
         working-directory: plugin
         run: dotnet msbuild Voltage.FarseerPhysics.csproj -t:PackagePlugin
