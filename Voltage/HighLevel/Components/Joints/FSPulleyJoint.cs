@@ -11,42 +11,92 @@ namespace Voltage.Farseer
 
 		#region Configuration
 
+		public Vector2 OwnerBodyAnchor
+		{
+			get => _jointDef.OwnerBodyAnchor;
+			set
+			{
+				_jointDef.OwnerBodyAnchor = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public Vector2 OtherBodyAnchor
+		{
+			get => _jointDef.OtherBodyAnchor;
+			set
+			{
+				_jointDef.OtherBodyAnchor = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public Vector2 OwnerBodyGroundAnchor
+		{
+			get => _jointDef.OwnerBodyGroundAnchor;
+			set
+			{
+				_jointDef.OwnerBodyGroundAnchor = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public Vector2 OtherBodyGroundAnchor
+		{
+			get => _jointDef.OtherBodyGroundAnchor;
+			set
+			{
+				_jointDef.OtherBodyGroundAnchor = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float Ratio
+		{
+			get => _jointDef.Ratio;
+			set
+			{
+				_jointDef.Ratio = value;
+				RecreateJoint();
+			}
+		}
+
+
 		public FSPulleyJoint SetOwnerBodyAnchor(Vector2 ownerBodyAnchor)
 		{
-			_jointDef.OwnerBodyAnchor = ownerBodyAnchor;
-			RecreateJoint();
+			OwnerBodyAnchor = ownerBodyAnchor;
 			return this;
 		}
 
 
 		public FSPulleyJoint SetOtherBodyAnchor(Vector2 otherBodyAnchor)
 		{
-			_jointDef.OtherBodyAnchor = otherBodyAnchor;
-			RecreateJoint();
+			OtherBodyAnchor = otherBodyAnchor;
 			return this;
 		}
 
 
 		public FSPulleyJoint SetOwnerBodyGroundAnchor(Vector2 ownerBodyGroundAnchor)
 		{
-			_jointDef.OwnerBodyGroundAnchor = ownerBodyGroundAnchor;
-			RecreateJoint();
+			OwnerBodyGroundAnchor = ownerBodyGroundAnchor;
 			return this;
 		}
 
 
 		public FSPulleyJoint SetOtherBodyGroundAnchor(Vector2 otherBodyGroundAnchor)
 		{
-			_jointDef.OtherBodyGroundAnchor = otherBodyGroundAnchor;
-			RecreateJoint();
+			OtherBodyGroundAnchor = otherBodyGroundAnchor;
 			return this;
 		}
 
 
 		public FSPulleyJoint SetRatio(float ratio)
 		{
-			_jointDef.Ratio = ratio;
-			RecreateJoint();
+			Ratio = ratio;
 			return this;
 		}
 

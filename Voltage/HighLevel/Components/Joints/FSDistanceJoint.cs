@@ -11,34 +11,74 @@ namespace Voltage.Farseer
 
 		#region Configuration
 
+		public float Frequency
+		{
+			get => _jointDef.Frequency;
+			set
+			{
+				_jointDef.Frequency = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float DampingRatio
+		{
+			get => _jointDef.DampingRatio;
+			set
+			{
+				_jointDef.DampingRatio = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public Vector2 OwnerBodyAnchor
+		{
+			get => _jointDef.OwnerBodyAnchor;
+			set
+			{
+				_jointDef.OwnerBodyAnchor = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public Vector2 OtherBodyAnchor
+		{
+			get => _jointDef.OtherBodyAnchor;
+			set
+			{
+				_jointDef.OtherBodyAnchor = value;
+				RecreateJoint();
+			}
+		}
+
+
 		public FSDistanceJoint SetFrequency(float frequency)
 		{
-			_jointDef.Frequency = frequency;
-			RecreateJoint();
+			Frequency = frequency;
 			return this;
 		}
 
 
 		public FSDistanceJoint SetDampingRatio(float damping)
 		{
-			_jointDef.DampingRatio = damping;
-			RecreateJoint();
+			DampingRatio = damping;
 			return this;
 		}
 
 
 		public FSDistanceJoint SetOwnerBodyAnchor(Vector2 ownerBodyAnchor)
 		{
-			_jointDef.OwnerBodyAnchor = ownerBodyAnchor;
-			RecreateJoint();
+			OwnerBodyAnchor = ownerBodyAnchor;
 			return this;
 		}
 
 
 		public FSDistanceJoint SetOtherBodyAnchor(Vector2 otherBodyAnchor)
 		{
-			_jointDef.OtherBodyAnchor = otherBodyAnchor;
-			RecreateJoint();
+			OtherBodyAnchor = otherBodyAnchor;
 			return this;
 		}
 

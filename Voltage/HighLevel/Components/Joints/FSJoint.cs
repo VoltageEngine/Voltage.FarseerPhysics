@@ -16,18 +16,42 @@ namespace Voltage.Farseer
 
 		#region Configuration
 
+		/// <summary>
+		/// the body at the far end of the joint. Serialized as a ComponentReference, so it survives a
+		/// scene round-trip and is reconnected after load.
+		/// </summary>
+		public FSRigidBody OtherBody
+		{
+			get => _otherBody;
+			set
+			{
+				_otherBody = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public bool CollideConnected
+		{
+			get => _collideConnected;
+			set
+			{
+				_collideConnected = value;
+				RecreateJoint();
+			}
+		}
+
+
 		public FSJoint SetOtherBody(FSRigidBody otherBody)
 		{
-			_otherBody = otherBody;
-			RecreateJoint();
+			OtherBody = otherBody;
 			return this;
 		}
 
 
 		public FSJoint SetCollideConnected(bool collideConnected)
 		{
-			_collideConnected = collideConnected;
-			RecreateJoint();
+			CollideConnected = collideConnected;
 			return this;
 		}
 

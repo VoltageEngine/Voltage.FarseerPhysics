@@ -8,26 +8,56 @@ namespace Voltage.Farseer
 
 		#region Configuration
 
+		public float MaxImpulse
+		{
+			get => _jointDef.MaxImpulse;
+			set
+			{
+				_jointDef.MaxImpulse = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float BiasFactor
+		{
+			get => _jointDef.BiasFactor;
+			set
+			{
+				_jointDef.BiasFactor = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float Softness
+		{
+			get => _jointDef.Softness;
+			set
+			{
+				_jointDef.Softness = value;
+				RecreateJoint();
+			}
+		}
+
+
 		public FSAngleJoint SetMaxImpulse(float maxImpulse)
 		{
-			_jointDef.MaxImpulse = maxImpulse;
-			RecreateJoint();
+			MaxImpulse = maxImpulse;
 			return this;
 		}
 
 
 		public FSAngleJoint SetBiasFactor(float biasFactor)
 		{
-			_jointDef.BiasFactor = biasFactor;
-			RecreateJoint();
+			BiasFactor = biasFactor;
 			return this;
 		}
 
 
 		public FSAngleJoint SetSoftness(float softness)
 		{
-			_jointDef.Softness = softness;
-			RecreateJoint();
+			Softness = softness;
 			return this;
 		}
 

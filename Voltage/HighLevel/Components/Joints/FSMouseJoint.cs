@@ -13,38 +13,78 @@ namespace Voltage.Farseer
 
 		#region Configuration
 
+		public Vector2 WorldAnchor
+		{
+			get => _jointDef.WorldAnchor;
+			set
+			{
+				_jointDef.WorldAnchor = value;
+				if (_joint != null)
+					_joint.WorldAnchorB = value * FSConvert.DisplayToSim;
+			}
+		}
+
+
+		public float Frequency
+		{
+			get => _jointDef.Frequency;
+			set
+			{
+				_jointDef.Frequency = value;
+				if (_joint != null)
+					(_joint as FixedMouseJoint).Frequency = value;
+			}
+		}
+
+
+		public float DampingRatio
+		{
+			get => _jointDef.DampingRatio;
+			set
+			{
+				_jointDef.DampingRatio = value;
+				if (_joint != null)
+					(_joint as FixedMouseJoint).DampingRatio = value;
+			}
+		}
+
+
+		public float MaxForce
+		{
+			get => _jointDef.MaxForce;
+			set
+			{
+				_jointDef.MaxForce = value;
+				if (_joint != null)
+					(_joint as FixedMouseJoint).MaxForce = value;
+			}
+		}
+
+
 		public FSMouseJoint SetWorldAnchor(Vector2 worldAnchor)
 		{
-			_jointDef.WorldAnchor = worldAnchor;
-			if (_joint != null)
-				_joint.WorldAnchorB = worldAnchor * FSConvert.DisplayToSim;
+			WorldAnchor = worldAnchor;
 			return this;
 		}
 
 
 		public FSMouseJoint SetFrequency(float frequency)
 		{
-			_jointDef.Frequency = frequency;
-			if (_joint != null)
-				(_joint as FixedMouseJoint).Frequency = frequency;
+			Frequency = frequency;
 			return this;
 		}
 
 
 		public FSMouseJoint SetDampingRatio(float dampingRatio)
 		{
-			_jointDef.DampingRatio = dampingRatio;
-			if (_joint != null)
-				(_joint as FixedMouseJoint).DampingRatio = dampingRatio;
+			DampingRatio = dampingRatio;
 			return this;
 		}
 
 
 		public FSMouseJoint SetMaxForce(float maxForce)
 		{
-			_jointDef.MaxForce = maxForce;
-			if (_joint != null)
-				(_joint as FixedMouseJoint).MaxForce = maxForce;
+			MaxForce = maxForce;
 			return this;
 		}
 

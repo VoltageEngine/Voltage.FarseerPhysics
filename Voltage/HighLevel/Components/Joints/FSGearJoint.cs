@@ -10,40 +10,73 @@ namespace Voltage.Farseer
 
 		#region Configuration
 
+		/// <summary>
+		/// serialized as a ComponentReference, so the pairing survives a scene round-trip.
+		/// </summary>
+		public FSJoint OwnerJoint
+		{
+			get => _ownerJoint;
+			set
+			{
+				if (_ownerJoint != null)
+					_ownerJoint._attachedJoint = null;
+
+				_ownerJoint = value;
+
+				if (_ownerJoint != null)
+					_ownerJoint._attachedJoint = this;
+
+				RecreateJoint();
+			}
+		}
+
+
+		public FSJoint OtherJoint
+		{
+			get => _otherJoint;
+			set
+			{
+				if (_otherJoint != null)
+					_otherJoint._attachedJoint = null;
+
+				_otherJoint = value;
+
+				if (_otherJoint != null)
+					_otherJoint._attachedJoint = this;
+
+				RecreateJoint();
+			}
+		}
+
+
+		public float Ratio
+		{
+			get => _jointDef.Ratio;
+			set
+			{
+				_jointDef.Ratio = value;
+				RecreateJoint();
+			}
+		}
+
+
 		public FSGearJoint SetOwnerJoint(FSJoint ownerJoint)
 		{
-			if (_ownerJoint != null)
-				_ownerJoint._attachedJoint = null;
-
-			_ownerJoint = ownerJoint;
-
-			if (_ownerJoint != null)
-				_ownerJoint._attachedJoint = this;
-
-			RecreateJoint();
+			OwnerJoint = ownerJoint;
 			return this;
 		}
 
 
 		public FSGearJoint SetOtherJoint(FSJoint otherJoint)
 		{
-			if (_otherJoint != null)
-				_otherJoint._attachedJoint = null;
-
-			_otherJoint = otherJoint;
-
-			if (_otherJoint != null)
-				_otherJoint._attachedJoint = this;
-
-			RecreateJoint();
+			OtherJoint = otherJoint;
 			return this;
 		}
 
 
 		public FSGearJoint SetRatio(float ratio)
 		{
-			_jointDef.Ratio = ratio;
-			RecreateJoint();
+			Ratio = ratio;
 			return this;
 		}
 

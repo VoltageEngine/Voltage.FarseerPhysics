@@ -12,26 +12,56 @@ namespace Voltage.Farseer
 
 		#region Configuration
 
+		public Vector2 Anchor
+		{
+			get => _anchor;
+			set
+			{
+				_anchor = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float MaxForce
+		{
+			get => _jointDef.MaxForce;
+			set
+			{
+				_jointDef.MaxForce = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float MaxTorque
+		{
+			get => _jointDef.MaxTorque;
+			set
+			{
+				_jointDef.MaxTorque = value;
+				RecreateJoint();
+			}
+		}
+
+
 		public FSFrictionJoint SetAnchor(Vector2 anchor)
 		{
-			_anchor = anchor;
-			RecreateJoint();
+			Anchor = anchor;
 			return this;
 		}
 
 
 		public FSFrictionJoint SetMaxForce(float maxForce)
 		{
-			_jointDef.MaxForce = maxForce;
-			RecreateJoint();
+			MaxForce = maxForce;
 			return this;
 		}
 
 
 		public FSFrictionJoint SetMaxTorque(float maxTorque)
 		{
-			_jointDef.MaxTorque = maxTorque;
-			RecreateJoint();
+			MaxTorque = maxTorque;
 			return this;
 		}
 

@@ -27,18 +27,38 @@ namespace Voltage.Farseer
 
 		#region Configuration
 
+		public float Radius
+		{
+			get => _radius;
+			set
+			{
+				_radius = value;
+				RecreateFixture();
+			}
+		}
+
+
+		public Vector2 Center
+		{
+			get => _center;
+			set
+			{
+				_center = value;
+				RecreateFixture();
+			}
+		}
+
+
 		public FSCollisionCircle SetRadius(float radius)
 		{
-			_radius = radius;
-			RecreateFixture();
+			Radius = radius;
 			return this;
 		}
 
 
 		public FSCollisionCircle SetCenter(Vector2 center)
 		{
-			_center = center;
-			RecreateFixture();
+			Center = center;
 			return this;
 		}
 
@@ -52,10 +72,32 @@ namespace Voltage.Farseer
 		}
 
 
+		/// <summary>
+		/// the shape carries no state of its own until this runs, so it has to happen before the
+		/// fixture is built — otherwise a radius restored from a scene file is never applied.
+		/// </summary>
+		internal override void CreateFixture()
+		{
+			UpdateShape();
+			base.CreateFixture();
+		}
+
+
+		void UpdateShape()
+		{
+			var scale = Entity != null ? Transform.Scale.X : 1f;
+			_fixtureDef.Shape.Radius = _radius * scale * FSConvert.DisplayToSim;
+			(_fixtureDef.Shape as CircleShape).Position = FSConvert.DisplayToSim * _center;
+		}
+
+
 		void RecreateFixture()
 		{
-			_fixtureDef.Shape.Radius = _radius * Transform.Scale.X * FSConvert.DisplayToSim;
-			(_fixtureDef.Shape as CircleShape).Position = FSConvert.DisplayToSim * _center;
+			// deserialization writes these properties before the component has an Entity
+			if (Entity == null)
+				return;
+
+			UpdateShape();
 
 			if (_fixture != null)
 			{

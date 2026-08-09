@@ -11,34 +11,74 @@ namespace Voltage.Farseer
 
 		#region Configuration
 
+		public Vector2 LinearOffset
+		{
+			get => _jointDef.LinearOffset;
+			set
+			{
+				_jointDef.LinearOffset = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float MaxForce
+		{
+			get => _jointDef.MaxForce;
+			set
+			{
+				_jointDef.MaxForce = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float MaxTorque
+		{
+			get => _jointDef.MaxTorque;
+			set
+			{
+				_jointDef.MaxTorque = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float AngularOffset
+		{
+			get => _jointDef.AngularOffset;
+			set
+			{
+				_jointDef.AngularOffset = value;
+				RecreateJoint();
+			}
+		}
+
+
 		public FSMotorJoint SetLinearOffset(Vector2 linearOffset)
 		{
-			_jointDef.LinearOffset = linearOffset;
-			RecreateJoint();
+			LinearOffset = linearOffset;
 			return this;
 		}
 
 
 		public FSMotorJoint SetMaxForce(float maxForce)
 		{
-			_jointDef.MaxForce = maxForce;
-			RecreateJoint();
+			MaxForce = maxForce;
 			return this;
 		}
 
 
 		public FSMotorJoint SetMaxTorque(float maxTorque)
 		{
-			_jointDef.MaxTorque = maxTorque;
-			RecreateJoint();
+			MaxTorque = maxTorque;
 			return this;
 		}
 
 
 		public FSMotorJoint SetAngularOffset(float angularOffset)
 		{
-			_jointDef.AngularOffset = angularOffset;
-			RecreateJoint();
+			AngularOffset = angularOffset;
 			return this;
 		}
 

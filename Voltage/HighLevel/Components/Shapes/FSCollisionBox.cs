@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using FarseerPhysics.Common;
+using Microsoft.Xna.Framework;
 
 
 namespace Voltage.Farseer
@@ -19,24 +21,52 @@ namespace Voltage.Farseer
 		{
 			_width = width;
 			_height = height;
-			_verts = PolygonTools.CreateRectangle(FSConvert.DisplayToSim * _width / 2,
-				FSConvert.DisplayToSim * _height / 2);
+			_areVertsDirty = true;
 		}
 
 
 		#region Configuration
 
+		public float Width
+		{
+			get => _width;
+			set
+			{
+				_width = value;
+				_areVertsDirty = true;
+				RecreateFixture();
+			}
+		}
+
+
+		public float Height
+		{
+			get => _height;
+			set
+			{
+				_height = value;
+				_areVertsDirty = true;
+				RecreateFixture();
+			}
+		}
+
+
 		public FSCollisionBox SetSize(float width, float height)
 		{
 			_width = width;
 			_height = height;
-			_verts = PolygonTools.CreateRectangle(FSConvert.DisplayToSim * _width / 2,
-				FSConvert.DisplayToSim * _height / 2);
 			_areVertsDirty = true;
 			RecreateFixture();
 			return this;
 		}
 
 		#endregion
+
+
+		protected override void RebuildVerts()
+		{
+			_verts = new List<Vector2>(PolygonTools.CreateRectangle(FSConvert.DisplayToSim * _width / 2,
+				FSConvert.DisplayToSim * _height / 2));
+		}
 	}
 }

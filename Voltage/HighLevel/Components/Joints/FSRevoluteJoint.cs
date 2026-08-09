@@ -11,74 +11,164 @@ namespace Voltage.Farseer
 
 		#region Configuration
 
+		public Vector2 OwnerBodyAnchor
+		{
+			get => _jointDef.OwnerBodyAnchor;
+			set
+			{
+				_jointDef.OwnerBodyAnchor = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public Vector2 OtherBodyAnchor
+		{
+			get => _jointDef.OtherBodyAnchor;
+			set
+			{
+				_jointDef.OtherBodyAnchor = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public bool LimitEnabled
+		{
+			get => _jointDef.LimitEnabled;
+			set
+			{
+				_jointDef.LimitEnabled = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float LowerLimit
+		{
+			get => _jointDef.LowerLimit;
+			set
+			{
+				_jointDef.LowerLimit = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float UpperLimit
+		{
+			get => _jointDef.UpperLimit;
+			set
+			{
+				_jointDef.UpperLimit = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public bool MotorEnabled
+		{
+			get => _jointDef.MotorEnabled;
+			set
+			{
+				_jointDef.MotorEnabled = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float MotorSpeed
+		{
+			get => _jointDef.MotorSpeed;
+			set
+			{
+				_jointDef.MotorSpeed = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float MaxMotorTorque
+		{
+			get => _jointDef.MaxMotorTorque;
+			set
+			{
+				_jointDef.MaxMotorTorque = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float MotorImpulse
+		{
+			get => _jointDef.MotorImpulse;
+			set
+			{
+				_jointDef.MotorImpulse = value;
+				RecreateJoint();
+			}
+		}
+
+
 		public FSRevoluteJoint SetOwnerBodyAnchor(Vector2 ownerBodyAnchor)
 		{
-			_jointDef.OwnerBodyAnchor = ownerBodyAnchor;
-			RecreateJoint();
+			OwnerBodyAnchor = ownerBodyAnchor;
 			return this;
 		}
 
 
 		public FSRevoluteJoint SetOtherBodyAnchor(Vector2 otherBodyAnchor)
 		{
-			_jointDef.OtherBodyAnchor = otherBodyAnchor;
-			RecreateJoint();
+			OtherBodyAnchor = otherBodyAnchor;
 			return this;
 		}
 
 
 		public FSRevoluteJoint SetLimitEnabled(bool limitEnabled)
 		{
-			_jointDef.LimitEnabled = limitEnabled;
-			RecreateJoint();
+			LimitEnabled = limitEnabled;
 			return this;
 		}
 
 
 		public FSRevoluteJoint SetLowerLimit(float lowerLimit)
 		{
-			_jointDef.LowerLimit = lowerLimit;
-			RecreateJoint();
+			LowerLimit = lowerLimit;
 			return this;
 		}
 
 
 		public FSRevoluteJoint SetUpperLimit(float upperLimit)
 		{
-			_jointDef.UpperLimit = upperLimit;
-			RecreateJoint();
+			UpperLimit = upperLimit;
 			return this;
 		}
 
 
 		public FSRevoluteJoint SetMotorEnabled(bool motorEnabled)
 		{
-			_jointDef.MotorEnabled = motorEnabled;
-			RecreateJoint();
+			MotorEnabled = motorEnabled;
 			return this;
 		}
 
 
 		public FSRevoluteJoint SetMotorSpeed(float motorSpeed)
 		{
-			_jointDef.MotorSpeed = motorSpeed;
-			RecreateJoint();
+			MotorSpeed = motorSpeed;
 			return this;
 		}
 
 
 		public FSRevoluteJoint SetMaxMotorTorque(float maxMotorTorque)
 		{
-			_jointDef.MaxMotorTorque = maxMotorTorque;
-			RecreateJoint();
+			MaxMotorTorque = maxMotorTorque;
 			return this;
 		}
 
 
 		public FSRevoluteJoint SetMotorImpulse(float motorImpulse)
 		{
-			_jointDef.MotorImpulse = motorImpulse;
-			RecreateJoint();
+			MotorImpulse = motorImpulse;
 			return this;
 		}
 

@@ -11,58 +11,128 @@ namespace Voltage.Farseer
 
 		#region Configuration
 
+		public Vector2 Anchor
+		{
+			get => _jointDef.Anchor;
+			set
+			{
+				_jointDef.Anchor = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public Vector2 Axis
+		{
+			get => _jointDef.Axis;
+			set
+			{
+				_jointDef.Axis = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public bool MotorEnabled
+		{
+			get => _jointDef.MotorEnabled;
+			set
+			{
+				_jointDef.MotorEnabled = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float MotorSpeed
+		{
+			get => _jointDef.MotorSpeed;
+			set
+			{
+				_jointDef.MotorSpeed = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float MaxMotorTorque
+		{
+			get => _jointDef.MaxMotorTorque;
+			set
+			{
+				_jointDef.MaxMotorTorque = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float Frequency
+		{
+			get => _jointDef.Frequency;
+			set
+			{
+				_jointDef.Frequency = value;
+				RecreateJoint();
+			}
+		}
+
+
+		public float DampingRatio
+		{
+			get => _jointDef.DampingRatio;
+			set
+			{
+				_jointDef.DampingRatio = value;
+				RecreateJoint();
+			}
+		}
+
+
 		public FSWheelJoint SetAnchor(Vector2 anchor)
 		{
-			_jointDef.Anchor = anchor;
-			RecreateJoint();
+			Anchor = anchor;
 			return this;
 		}
 
 
 		public FSWheelJoint SetAxis(Vector2 axis)
 		{
-			_jointDef.Axis = axis;
-			RecreateJoint();
+			Axis = axis;
 			return this;
 		}
 
 
 		public FSWheelJoint SetMotorEnabled(bool motorEnabled)
 		{
-			_jointDef.MotorEnabled = motorEnabled;
-			RecreateJoint();
+			MotorEnabled = motorEnabled;
 			return this;
 		}
 
 
 		public FSWheelJoint SetMotorSpeed(float motorSpeed)
 		{
-			_jointDef.MotorSpeed = motorSpeed;
-			RecreateJoint();
+			MotorSpeed = motorSpeed;
 			return this;
 		}
 
 
 		public FSWheelJoint SetMaxMotorTorque(float maxMotorTorque)
 		{
-			_jointDef.MaxMotorTorque = maxMotorTorque;
-			RecreateJoint();
+			MaxMotorTorque = maxMotorTorque;
 			return this;
 		}
 
 
 		public FSWheelJoint SetFrequency(float frequency)
 		{
-			_jointDef.Frequency = frequency;
-			RecreateJoint();
+			Frequency = frequency;
 			return this;
 		}
 
 
 		public FSWheelJoint SetDampingRatio(float damping)
 		{
-			_jointDef.DampingRatio = damping;
-			RecreateJoint();
+			DampingRatio = damping;
 			return this;
 		}
 

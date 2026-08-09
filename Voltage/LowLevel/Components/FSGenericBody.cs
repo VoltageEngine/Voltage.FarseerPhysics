@@ -17,6 +17,7 @@ namespace Voltage.Farseer
 		public Body Body;
 
 		bool _ignoreTransformChanges;
+		BodyType _bodyType = BodyType.Static;
 
 
 		public FSGenericBody()
@@ -34,15 +35,36 @@ namespace Voltage.Farseer
 		}
 
 
+		/// <summary>
+		/// the only authorable value this component has. Applied when the Body is created, so it also
+		/// survives a scene round-trip — a Body handed in via the constructor keeps its own type.
+		/// </summary>
+		public BodyType BodyType
+		{
+			get => Body != null ? Body.BodyType : _bodyType;
+			set
+			{
+				_bodyType = value;
+				if (Body != null)
+					Body.BodyType = value;
+			}
+		}
+
+
 		public override void OnAddedToEntity()
 		{
 			var world = Entity.Scene.GetOrCreateSceneComponent<FSWorld>();
 
 			// always sync position ASAP in case any joints are added without global constraints
 			if (Body != null)
+			{
 				((IUpdatable) this).Update();
+			}
 			else
+			{
 				Body = new Body(world, Transform.Position * FSConvert.DisplayToSim, Transform.Rotation);
+				Body.BodyType = _bodyType;
+			}
 		}
 
 
@@ -82,7 +104,7 @@ namespace Voltage.Farseer
 
 		public FSGenericBody SetBodyType(BodyType bodyType)
 		{
-			Body.BodyType = bodyType;
+			BodyType = bodyType;
 			return this;
 		}
 
