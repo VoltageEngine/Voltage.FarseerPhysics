@@ -8,7 +8,8 @@ using Transform = Voltage.Transform;
 
 namespace Voltage.Farseer
 {
-	public class FSPolygonBody : FSRenderableBody
+	[ComponentId("fs_polygon_body")]
+	public partial class FSPolygonBody : FSRenderableBody
 	{
 		/// <summary>
 		/// verts are stored in display units. We convert to sim units if the Transform.scale changes.

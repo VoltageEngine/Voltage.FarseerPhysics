@@ -1,5 +1,6 @@
 using FarseerPhysics.Dynamics;
 using Voltage;
+using Voltage.Persistence;
 
 
 namespace Voltage.Farseer
@@ -8,8 +9,11 @@ namespace Voltage.Farseer
 	/// simple Component that will sync the position/rotation of the physics Body with the Transform. The GenericBody.transform.position
 	/// will always match Body.Position. Note that scale is not considered here.
 	/// </summary>
-	public class FSGenericBody : Component, IUpdatable
+	[ComponentId("fs_generic_body")]
+	public partial class FSGenericBody : Component, IUpdatable
 	{
+		// Runtime handle owned by the physics world, not authorable state.
+		[JsonExclude]
 		public Body Body;
 
 		bool _ignoreTransformChanges;

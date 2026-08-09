@@ -68,6 +68,12 @@
 		</Reference>
 	</ItemGroup>
 
+	<!-- Without the generator, components fall back to reflection: fine in the editor, silently
+	     all-default in an AOT build. -->
+	<ItemGroup Condition="Exists('$(VoltageEnginePath)\Voltage.SourceGenerators.dll')">
+		<Analyzer Include="$(VoltageEnginePath)\Voltage.SourceGenerators.dll" />
+	</ItemGroup>
+
 	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.targets" />
 
 	<!--

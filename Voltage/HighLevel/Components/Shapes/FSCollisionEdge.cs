@@ -4,7 +4,8 @@ using Microsoft.Xna.Framework;
 
 namespace Voltage.Farseer
 {
-	public class FSCollisionEdge : FSCollisionShape
+	[ComponentId("fs_collision_edge")]
+	public partial class FSCollisionEdge : FSCollisionShape
 	{
 		Vector2 _vertex1 = new Vector2(-0.01f, 0);
 		Vector2 _vertex2 = new Vector2(0.01f, 0);

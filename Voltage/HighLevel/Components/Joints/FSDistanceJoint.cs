@@ -3,7 +3,8 @@ using Microsoft.Xna.Framework;
 
 namespace Voltage.Farseer
 {
-	public class FSDistanceJoint : FSJoint
+	[ComponentId("fs_distance_joint")]
+	public partial class FSDistanceJoint : FSJoint
 	{
 		FSDistanceJointDef _jointDef = new FSDistanceJointDef();
 

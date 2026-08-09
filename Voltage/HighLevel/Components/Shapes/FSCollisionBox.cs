@@ -3,7 +3,8 @@ using FarseerPhysics.Common;
 
 namespace Voltage.Farseer
 {
-	public class FSCollisionBox : FSCollisionPolygon
+	[ComponentId("fs_collision_box")]
+	public partial class FSCollisionBox : FSCollisionPolygon
 	{
 		float _width = 0.1f;
 		float _height = 0.1f;

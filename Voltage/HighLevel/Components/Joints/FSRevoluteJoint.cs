@@ -3,7 +3,8 @@ using Microsoft.Xna.Framework;
 
 namespace Voltage.Farseer
 {
-	public class FSRevoluteJoint : FSJoint
+	[ComponentId("fs_revolute_joint")]
+	public partial class FSRevoluteJoint : FSJoint
 	{
 		FSRevoluteJointDef _jointDef = new FSRevoluteJointDef();
 

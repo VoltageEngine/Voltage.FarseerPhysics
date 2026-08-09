@@ -1,6 +1,7 @@
 namespace Voltage.Farseer
 {
-	public class FSGearJoint : FSJoint
+	[ComponentId("fs_gear_joint")]
+	public partial class FSGearJoint : FSJoint
 	{
 		FSGearJointDef _jointDef = new FSGearJointDef();
 		FSJoint _ownerJoint;

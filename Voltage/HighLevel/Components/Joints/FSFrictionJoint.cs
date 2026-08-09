@@ -3,7 +3,8 @@ using Microsoft.Xna.Framework;
 
 namespace Voltage.Farseer
 {
-	public class FSFrictionJoint : FSJoint
+	[ComponentId("fs_friction_joint")]
+	public partial class FSFrictionJoint : FSJoint
 	{
 		FSFrictionJointDef _jointDef = new FSFrictionJointDef();
 		Vector2 _anchor;

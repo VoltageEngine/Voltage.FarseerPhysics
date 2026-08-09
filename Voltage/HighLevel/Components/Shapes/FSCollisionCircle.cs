@@ -5,7 +5,8 @@ using Voltage;
 
 namespace Voltage.Farseer
 {
-	public class FSCollisionCircle : FSCollisionShape
+	[ComponentId("fs_collision_circle")]
+	public partial class FSCollisionCircle : FSCollisionShape
 	{
 		Vector2 _center;
 		float _radius = 0.1f;

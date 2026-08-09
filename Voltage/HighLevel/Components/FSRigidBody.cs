@@ -2,13 +2,17 @@ using System.Collections.Generic;
 using FarseerPhysics.Dynamics;
 using Microsoft.Xna.Framework;
 using Voltage;
+using Voltage.Persistence;
 using Voltage.Utils.Collections;
 
 
 namespace Voltage.Farseer
 {
-	public class FSRigidBody : Component, IUpdatable
+	[ComponentId("fs_rigid_body")]
+	public partial class FSRigidBody : Component, IUpdatable
 	{
+		// Runtime handle owned by the physics world, not authorable state.
+		[JsonExclude]
 		public Body Body;
 
 		FSBodyDef _bodyDef = new FSBodyDef();

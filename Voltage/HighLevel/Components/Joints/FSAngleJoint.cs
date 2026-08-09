@@ -1,6 +1,7 @@
 namespace Voltage.Farseer
 {
-	public class FSAngleJoint : FSJoint
+	[ComponentId("fs_angle_joint")]
+	public partial class FSAngleJoint : FSJoint
 	{
 		FSAngleJointDef _jointDef = new FSAngleJointDef();
 

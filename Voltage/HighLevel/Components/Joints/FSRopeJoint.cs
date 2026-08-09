@@ -3,7 +3,8 @@ using Microsoft.Xna.Framework;
 
 namespace Voltage.Farseer
 {
-	public class FSRopeJoint : FSJoint
+	[ComponentId("fs_rope_joint")]
+	public partial class FSRopeJoint : FSJoint
 	{
 		FSRopeJointDef _jointDef = new FSRopeJointDef();
 

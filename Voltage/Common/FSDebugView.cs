@@ -28,7 +28,8 @@ namespace Voltage.Farseer
 	/// A debug view shows you what happens inside the physics engine. You can view
 	/// bodies, joints, fixtures and more.
 	/// </summary>
-	public class FSDebugView : RenderableComponent, IDisposable
+	[ComponentId("fs_debug_view")]
+	public partial class FSDebugView : RenderableComponent, IDisposable
 	{
 		public override RectangleF Bounds => _bounds;
 

@@ -12,7 +12,8 @@ namespace Voltage.Farseer
 	/// <summary>
 	/// creates a compound polygon based on an image
 	/// </summary>
-	public class FSCompoundPolygonBody : FSRenderableBody
+	[ComponentId("fs_compound_polygon_body")]
+	public partial class FSCompoundPolygonBody : FSRenderableBody
 	{
 		protected List<Vertices> _verts = new List<Vertices>();
 

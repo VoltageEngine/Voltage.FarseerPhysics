@@ -8,7 +8,8 @@ using Transform = Voltage.Transform;
 
 namespace Voltage.Farseer
 {
-	public class FSCollisionChain : FSCollisionShape
+	[ComponentId("fs_collision_chain")]
+	public partial class FSCollisionChain : FSCollisionShape
 	{
 		List<Vector2> _verts;
 		bool _loop;

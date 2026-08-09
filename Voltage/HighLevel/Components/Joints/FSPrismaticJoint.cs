@@ -3,7 +3,8 @@ using Microsoft.Xna.Framework;
 
 namespace Voltage.Farseer
 {
-	public class FSPrismaticJoint : FSJoint
+	[ComponentId("fs_prismatic_joint")]
+	public partial class FSPrismaticJoint : FSJoint
 	{
 		FSPrismaticJointDef _jointDef = new FSPrismaticJointDef();
 

@@ -3,7 +3,8 @@ using Microsoft.Xna.Framework;
 
 namespace Voltage.Farseer
 {
-	public class FSWheelJoint : FSJoint
+	[ComponentId("fs_wheel_joint")]
+	public partial class FSWheelJoint : FSJoint
 	{
 		FSWheelJointDef _jointDef = new FSWheelJointDef();
 

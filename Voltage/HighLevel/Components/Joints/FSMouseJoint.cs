@@ -5,7 +5,8 @@ using Voltage;
 
 namespace Voltage.Farseer
 {
-	public class FSMouseJoint : FSJoint, IUpdatable
+	[ComponentId("fs_mouse_joint")]
+	public partial class FSMouseJoint : FSJoint, IUpdatable
 	{
 		FSMouseJointDef _jointDef = new FSMouseJointDef();
 

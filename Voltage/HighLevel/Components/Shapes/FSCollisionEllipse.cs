@@ -5,7 +5,8 @@ using Voltage;
 
 namespace Voltage.Farseer
 {
-	public class FSCollisionEllipse : FSCollisionPolygon
+	[ComponentId("fs_collision_ellipse")]
+	public partial class FSCollisionEllipse : FSCollisionPolygon
 	{
 		float _xRadius = 0.1f;
 		float _yRadius = 0.1f;

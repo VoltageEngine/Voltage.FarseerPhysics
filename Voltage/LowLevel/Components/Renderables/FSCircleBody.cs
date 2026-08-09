@@ -5,7 +5,8 @@ using Voltage.Textures;
 
 namespace Voltage.Farseer
 {
-	public class FSCircleBody : FSRenderableBody
+	[ComponentId("fs_circle_body")]
+	public partial class FSCircleBody : FSRenderableBody
 	{
 		public FSCircleBody(Sprite sprite) : base(sprite)
 		{

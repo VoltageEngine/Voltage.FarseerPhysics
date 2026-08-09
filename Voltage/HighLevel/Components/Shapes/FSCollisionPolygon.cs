@@ -8,7 +8,8 @@ using Transform = Voltage.Transform;
 
 namespace Voltage.Farseer
 {
-	public class FSCollisionPolygon : FSCollisionShape
+	[ComponentId("fs_collision_polygon")]
+	public partial class FSCollisionPolygon : FSCollisionShape
 	{
 		/// <summary>
 		/// verts are stored in sim units

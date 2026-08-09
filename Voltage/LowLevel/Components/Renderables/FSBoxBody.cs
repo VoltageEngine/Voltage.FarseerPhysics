@@ -5,7 +5,8 @@ using Voltage.Textures;
 
 namespace Voltage.Farseer
 {
-	public class FSBoxBody : FSPolygonBody
+	[ComponentId("fs_box_body")]
+	public partial class FSBoxBody : FSPolygonBody
 	{
 		public FSBoxBody(Sprite sprite) : base(sprite,
 			PolygonTools.CreateRectangle(sprite.SourceRect.Width / 2, sprite.SourceRect.Height / 2))

@@ -3,7 +3,8 @@ using Microsoft.Xna.Framework;
 
 namespace Voltage.Farseer
 {
-	public class FSPulleyJoint : FSJoint
+	[ComponentId("fs_pulley_joint")]
+	public partial class FSPulleyJoint : FSJoint
 	{
 		FSPulleyJointDef _jointDef = new FSPulleyJointDef();
 
