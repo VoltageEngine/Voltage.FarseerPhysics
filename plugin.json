@@ -2,7 +2,7 @@
 	"SchemaVersion": 1,
 	"Id": "voltage.farseer",
 	"Name": "Farseer Physics",
-	"Version": "1.2.0",
+	"Version": "1.2.1",
 	"Description": "Full rigid-body physics engine (Box2D-lineage Farseer) with the FS* component family: FSRigidBody, FSCollisionBox/Circle/Polygon, joints, and FSWorld.",
 	"Kinds": [
 		"gameplay"
