@@ -13,7 +13,13 @@ name: Submit to plugin registry
 # releases on its own schedule (plugin-registry, sync-releases), so a published version reaches Browse
 # Plugins within the hour whatever this job does. All a token buys is that it lands immediately, as a
 # reviewable pull request rather than a bot commit.
+#
+# `workflow_call` is how this actually runs. The release is created by the Release workflow using the
+# default GITHUB_TOKEN, and GitHub deliberately raises no workflow events for what that token does - so
+# `release: published` never fires for it, and this job had never run once. Release now calls it directly.
+# The release trigger stays for a release published by hand, which does fire.
 on:
+  workflow_call:
   release:
     types: [published]
   workflow_dispatch:
